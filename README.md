@@ -1,5 +1,8 @@
 # MyReads Project
 
+##Project Rubric
+https://review.udacity.com/#!/rubrics/918/view
+
 
 ## TL;DR
 

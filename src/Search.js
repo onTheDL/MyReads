@@ -2,15 +2,27 @@ import React from 'react';
 import SearchInput from './SearchInput';
 import SearchResults from './SearchResults';
 
-function Search(props) {
+class Search extends React.Component {
+  state = {
+    searchResults: []
+  }
 
-  return(
-    <div className="search-books">
-      <SearchInput navToHome={props.navToHome} />
-      <SearchResults />
-    </div>
-  );
+  handleSearchResults = (results) => {
+    this.setState(() => ({
+      searchResults: results
+    }))
+  }
 
+  render() {
+    return(
+      <div className="search-books">
+        <SearchInput navToHome={this.props.navToHome} handleSearchResults={this.handleSearchResults} />
+        <SearchResults searchResults={this.state.searchResults} />
+        
+
+      </div>
+    );
+  }
 }
 
 

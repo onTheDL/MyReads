@@ -14,13 +14,14 @@ const options = [
   {
     value: 'read',
     text: 'Read',
+  },
+  {
+    value: 'none',
+    text: 'None',
   }
 ];
 
 class Book extends React.Component {
-  state = {
-    shelf: this.props.sortedBook.shelf
-  }
 
   handleSelect = (e) => {
     const { sortedBook } = this.props;
@@ -49,7 +50,8 @@ class Book extends React.Component {
                 <select onChange={this.handleSelect} select='wantToRead'>
                   <option value="move" disabled>Move to...</option>
 
-                  {options.map((option, index) =>(
+                  {options.map((option, index) => (
+                    
                     sortedBook.shelf === option.value ? 
                       <option selected key={index} value={option.value}>{option.text}</option> :
                       <option key={index} value={option.value}>{option.text}</option>
@@ -59,10 +61,6 @@ class Book extends React.Component {
                   <option value="wantToRead">Want to Read</option>
                   <option value="read">Read</option> */}
 
-
-
-
-                  <option value="none">None</option>
                 </select>
               </div>
             </div>

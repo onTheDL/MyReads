@@ -1,5 +1,5 @@
 import React from 'react';
-import { search } from './BooksAPI';
+
 
 class SearchInput extends React.Component {
   state = {
@@ -7,15 +7,17 @@ class SearchInput extends React.Component {
   }
 
   handleSearchInput = (e) => {
-    const { handleSearchResults } = this.props;
     const searchValue = e.target.value
-
     this.setState({
       searchValue
     })
 
-    search(searchValue)
-      .then(res => handleSearchResults(res));
+    this.props.searchResults(searchValue)
+
+  }
+
+  handleSearchQuery = () => {
+    this.props.searchResults(this.state.searchValue);
   }
 
   render() {
@@ -32,7 +34,7 @@ class SearchInput extends React.Component {
             However, remember that the BooksAPI.search method DOES search by title or author. So, don't worry if
             you don't find a specific author or title. Every search is limited by search terms.
           */}
-          <input type="text" placeholder="Search by title or author" onChange={this.handleSearchInput} />
+          <input type="text" placeholder="Search by title or author" value={this.state.searchValue} onChange={this.handleSearchInput} />
 
         </div>
       </div>

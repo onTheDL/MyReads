@@ -71,7 +71,7 @@ class BooksApp extends React.Component {
           )} />
 
           <Route exact path='/search' render={({ history }) => (
-            <Search navToHome={() => history.push('/')} />
+            <Search navToHome={() => history.push('/')} updateShelf={this.handleUpdateShelf} />
           )} />
 
           <div className="open-search-div" >

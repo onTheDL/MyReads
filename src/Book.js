@@ -42,15 +42,11 @@ class Book extends React.Component {
   render() {
     const { sortedBook } = this.props;
   
-    // Determines what to do if thumbnail exists
-    // const imageExists = (image) => {
-    //   if (!image)
-    // }
-    return (
+     return (
       <div className="book">
         {console.log(sortedBook)}
             <div className="book-top">
-              <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url(${sortedBook.imageLinks.thumbnail})` }}></div>
+              <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url(${sortedBook.imageLinks ? sortedBook.imageLinks.thumbnail : ''})` }}></div>
               <div className="book-shelf-changer">
 
                 <select onChange={this.handleSelect} select='wantToRead' value={sortedBook.shelf}>

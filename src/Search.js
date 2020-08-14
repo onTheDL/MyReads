@@ -26,11 +26,11 @@ class Search extends React.Component {
   }
 
   render() {
-    const { updateShelf } = this.props
+    const { updateShelf, navToHome, shelvedBooks } = this.props
     return(
       <div className="search-books">
-        <SearchInput navToHome={this.props.navToHome} searchResults={this.handleSearchResults} />
-        <SearchResults searchResults={this.state.searchResults} updateShelf={updateShelf}  />
+        <SearchInput navToHome={navToHome} searchResults={this.handleSearchResults} />
+        <SearchResults searchResults={this.state.searchResults} updateShelf={updateShelf} shelvedBooks={shelvedBooks} />
         
 
       </div>

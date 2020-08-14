@@ -1,12 +1,24 @@
 # MyReads Project
 
-##Project Rubric
+## App Overview
+
+The MyReads project is a bookshelf app that allows the user to select and categorize books as either currently reading, want to read, or have read.  The project uses React to build the application and provides an API server and client library that will persist information as the user interact with the application, but only with specified search terms as documented in SEARCH_TERMS.md.
+
+## App Functionality
+
+The main page of the appliction displays a list of "shelves," each of which constains a number of books.  The three shelves are:
+    * Currently Reading
+    * Want to Read
+    * Read
+
+Each books has a control that lets the user select the shelf for that book. When the user selects a different shelf, the book is moved accordingly. The default value for the control indicates the book's current allocated shelf.
+
+The main page also has a link to a search page -- i.e. /search -- that allows the user to find books to add to the library. The search page has a text input.  As the value of the text input changes, the books that match the query are displayed on the page, along with a control that allows the user add the book to the library. The search page also has a link to the root URL (i.e. '/'), which leads back to the main page. When the user navigates back to the main page, the books are shelved according the the user's selection on the search page.
+
+## Project Rubric
 https://review.udacity.com/#!/rubrics/918/view
 
-
 ## TL;DR
-
-To get started developing right away:
 
 * install all project dependencies with `npm install`
 * start the development server with `npm start`
@@ -15,29 +27,27 @@ To get started developing right away:
 ```bash
 ├── CONTRIBUTING.md
 ├── README.md - This file.
-├── SEARCH_TERMS.md # The whitelisted short collection of available search terms for you to use with your app.
+├── SEARCH_TERMS.md # The whitelisted short collection of available search terms for use with the app.
 ├── package.json # npm package manager file. It's unlikely that you'll need to modify this.
 ├── public
 │   ├── favicon.ico # React Icon, You may change if you wish.
 │   └── index.html # DO NOT MODIFY
 └── src
-    ├── App.css # Styles for your app. Feel free to customize this as you desire.
-    ├── App.js # This is the root of your app. Contains static HTML right now.
-    ├── App.test.js # Used for testing. Provided with Create React App. Testing is encouraged, but not required.
+    ├── App.css 
+    ├── App.js 
+    ├── App.test.js 
     ├── BooksAPI.js # A JavaScript API for the provided Udacity backend. Instructions for the methods are below.
-    ├── icons # Helpful images for your app. Use at your discretion.
+    ├── icons 
     │   ├── add.svg
     │   ├── arrow-back.svg
     │   └── arrow-drop-down.svg
-    ├── index.css # Global styles. You probably won't need to change anything here.
-    └── index.js # You should not need to modify this file. It is used for DOM rendering only.
+    ├── index.css 
+    └── index.js 
 ```
-
-Remember that good React design practice is to create new JS files for each component and use import/require statements to include them where they are needed.
 
 ## Backend Server
 
-To simplify your development process, we've provided a backend server for you to develop against. The provided file [`BooksAPI.js`](src/BooksAPI.js) contains the methods you will need to perform necessary operations on the backend:
+The provided backend server file [`BooksAPI.js`](src/BooksAPI.js) contains the methods used to perform necessary operations on the backend:
 
 * [`getAll`](#getall)
 * [`update`](#update)

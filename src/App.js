@@ -30,6 +30,7 @@ class BooksApp extends React.Component {
     books: []
   }
 
+  // Returns all the selected books in user's library
   componentDidMount() {
     BooksAPI.getAll()
       .then((books) => {
@@ -39,6 +40,7 @@ class BooksApp extends React.Component {
       })
   }
 
+  // Rerenders the app with the updated selections
   handleUpdateShelf = () => {
     BooksAPI.getAll()
       .then((books) => {
@@ -57,12 +59,15 @@ class BooksApp extends React.Component {
           <div className="list-books-title">
             <h1>MyReads</h1>
           </div>
+
+          {/* Routes to the main page */}
           <Route exact path='/' render={() => (
             shelves.map(shelf => ( 
               <Shelf key={shelf.id} shelf={shelf} books={books} updateShelf={this.handleUpdateShelf} />
             ))
           )} />
 
+          {/* Routes to the search page */}
           <Route exact path='/search' render={({ history }) => (
             <Search navToHome={() => history.push('/')} updateShelf={this.handleUpdateShelf} shelvedBooks={this.state.books} />
           )} />
